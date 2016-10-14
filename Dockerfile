@@ -16,10 +16,13 @@ RUN set -x && \
 
 ENV PATH /root/anaconda3/bin:$PATH
 
-RUN set -x &&\
+RUN set -x && \
   conda install -c https://conda.binstar.org/menpo opencv3 -y && \
   conda install -c conda-forge tensorflow -y && \
-  conda install jupyter -y
+  conda install jupyter -y && \
+  pip install \
+    line_profiler \
+    memory_profiler
 
 COPY jupyter_notebook_config.py /root/.jupyter/
 
