@@ -20,6 +20,7 @@ RUN set -x && \
   conda install -c https://conda.binstar.org/menpo opencv3 -y && \
   conda install -c conda-forge tensorflow -y && \
   conda install jupyter -y && \
+  conda install seaborn -y && \
   pip install \
     line_profiler \
     memory_profiler
