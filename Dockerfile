@@ -26,6 +26,7 @@ RUN set -x && \
     memory_profiler
 
 COPY jupyter_notebook_config.py /root/.jupyter/
+COPY matplotlibrc /root/.config/matplotlib/
 
 # TensorBoard
 EXPOSE 6006 
