@@ -23,7 +23,10 @@ RUN set -x && \
   conda install seaborn -y && \
   pip install \
     line_profiler \
-    memory_profiler
+    memory_profiler && \
+  git clone --recursive https://github.com/dmlc/xgboost && \
+  cd xgboost; make -j4 && \
+  cd python-package; python setup.py install
 
 COPY jupyter_notebook_config.py /root/.jupyter/
 COPY matplotlibrc /root/.config/matplotlib/
