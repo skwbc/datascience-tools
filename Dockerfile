@@ -21,6 +21,7 @@ RUN set -x && \
   conda install -c conda-forge tensorflow -y && \
   conda install jupyter -y && \
   conda install seaborn -y && \
+  conda install -c conda-forge pymc3 -y && \
   pip install \
     line_profiler \
     memory_profiler && \
