@@ -22,6 +22,7 @@ RUN set -x && \
   conda install jupyter -y && \
   conda install seaborn -y && \
   conda install -c conda-forge pymc3 -y && \
+  conda install -c conda-forge librosa -y && \
   pip install \
     line_profiler \
     memory_profiler && \
