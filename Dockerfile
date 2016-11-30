@@ -25,7 +25,8 @@ RUN set -x && \
   conda install -c conda-forge librosa -y && \
   pip install \
     line_profiler \
-    memory_profiler && \
+    memory_profiler \
+    keras && \
   git clone --recursive https://github.com/dmlc/xgboost && \
   cd xgboost; make -j4 && \
   cd python-package; python setup.py install
