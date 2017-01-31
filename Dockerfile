@@ -24,10 +24,12 @@ RUN set -x && \
   conda install seaborn -y && \
   conda install -c conda-forge pymc3 -y && \
   conda install -c conda-forge librosa -y && \
+  conda install graphviz -y && \
   pip install \
+    graphviz \
+    keras \
     line_profiler \
-    memory_profiler \
-    keras
+    memory_profiler
 
 # xgboost
 RUN set -x && \
@@ -46,13 +48,12 @@ COPY jupyter_notebook_config.py /root/.jupyter/
 COPY matplotlibrc /root/.config/matplotlib/
 
 # TensorBoard
-EXPOSE 6006 
+EXPOSE 6006
 
 # Jupyter Notebook
-EXPOSE 8888 
+EXPOSE 8888
 
 RUN mkdir /workspace
 VOLUME /workspace
 VOLUME /mnt
 WORKDIR /workspace
-
