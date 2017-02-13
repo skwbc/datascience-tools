@@ -17,19 +17,18 @@ RUN set -x && \
   rm Anaconda3-4.1.1-Linux-x86_64.sh
 
 ENV PATH /root/anaconda3/bin:$PATH
+ARG tensorflow_version="0.12.0rc0-cp35-cp35m"
 RUN set -x && \
   conda install -c https://conda.binstar.org/menpo opencv3 -y && \
-  conda install -c conda-forge tensorflow -y && \
-  conda install jupyter -y && \
-  conda install seaborn -y && \
+  conda install graphviz jupyter seaborn -y && \
   conda install -c conda-forge pymc3 -y && \
   conda install -c conda-forge librosa -y && \
-  conda install graphviz -y && \
   pip install \
     graphviz \
-    keras \
     line_profiler \
-    memory_profiler
+    memory_profiler && \
+  pip install "https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-${tensorflow_version}-linux_x86_64.whl" && \
+  pip install "git+git://github.com/fchollet/keras.git"
 
 # xgboost
 RUN set -x && \

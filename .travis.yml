@@ -1,4 +1,4 @@
 sudo: required
 services:
   - docker
-script: docker run --rm -i lukasmartinelli/hadolint sh -c 'hadolint - --ignore DL3003 --ignore DL3008 --ignore DL3009 --ignore DL3013 --ignore DL3015 --ignore SC2164' < Dockerfile
+script: docker run --rm -i lukasmartinelli/hadolint sh -c 'hadolint - --ignore DL3003 --ignore DL3008 --ignore DL3009 --ignore DL3013 --ignore DL3015 --ignore SC2154 --ignore SC2164' < Dockerfile
