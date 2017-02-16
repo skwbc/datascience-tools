@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Shota Kawabuchi <shota.kawabuchi+github@gmail.com>
+MAINTAINER Shota Kawabuchi <shota.kawabuchi+git@gmail.com>
 
 RUN set -x && \
   apt-get update && \
@@ -17,7 +17,7 @@ RUN set -x && \
   rm Anaconda3-4.1.1-Linux-x86_64.sh
 
 ENV PATH /root/anaconda3/bin:$PATH
-ARG tensorflow_version="0.12.0rc0-cp35-cp35m"
+ARG tensorflow_version=1.0.0-cp35-cp35m
 RUN set -x && \
   conda install -c https://conda.binstar.org/menpo opencv3 -y && \
   conda install graphviz jupyter seaborn -y && \
@@ -27,8 +27,7 @@ RUN set -x && \
     graphviz \
     line_profiler \
     memory_profiler && \
-  pip install "https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-${tensorflow_version}-linux_x86_64.whl" && \
-  pip install "git+git://github.com/fchollet/keras.git"
+  pip install "https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp35-cp35m-linux_x86_64.whl"
 
 # xgboost
 RUN set -x && \
