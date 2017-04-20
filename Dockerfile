@@ -24,6 +24,7 @@ RUN set -x && \
   conda install -c conda-forge pymc3 -y && \
   conda install -c conda-forge librosa -y && \
   pip install \
+    fastFM \
     graphviz \
     line_profiler \
     memory_profiler && \
