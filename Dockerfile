@@ -19,7 +19,7 @@ RUN set -x && \
 ENV PATH /root/anaconda3/bin:$PATH
 ARG tensorflow_version=1.0.0-cp35-cp35m
 RUN set -x && \
-  conda install -c https://conda.binstar.org/menpo opencv3 -y && \
+  conda install -c menpo opencv3 -y && \
   conda install graphviz jupyter seaborn -y && \
   conda install -c conda-forge pymc3 -y && \
   conda install -c conda-forge librosa -y && \
