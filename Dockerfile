@@ -17,7 +17,6 @@ RUN set -x && \
   rm Anaconda3-4.1.1-Linux-x86_64.sh
 
 ENV PATH /root/anaconda3/bin:$PATH
-ARG tensorflow_version=1.0.0-cp35-cp35m
 RUN set -x && \
   conda install -c menpo opencv3 -y && \
   conda install graphviz jupyter seaborn -y && \
@@ -28,20 +27,13 @@ RUN set -x && \
     graphviz \
     line_profiler \
     memory_profiler && \
-  pip install "https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp35-cp35m-linux_x86_64.whl"
+  pip install "https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl"
 
 # xgboost
 RUN set -x && \
   git clone --recursive https://github.com/dmlc/xgboost && \
   cd xgboost; make -j4 && \
   cd python-package; python setup.py install
-
-# mxnet
-ENV MXNET_HOME /mxnet
-RUN set -x && \
-  git clone https://github.com/dmlc/mxnet.git --recursive && \
-  cd /mxnet; make -j4 && \
-  cd python; python setup.py install
 
 COPY jupyter_notebook_config.py /root/.jupyter/
 COPY matplotlibrc /root/.config/matplotlib/
