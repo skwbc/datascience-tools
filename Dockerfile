@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
 MAINTAINER Shota Kawabuchi <shota.kawabuchi+git@gmail.com>
 
+ENV LANG C.UTF-8
+
 RUN set -x && \
   apt-get update && \
   apt-get install -y \
@@ -27,7 +29,8 @@ RUN set -x && \
     graphviz \
     line_profiler \
     memory_profiler && \
-  pip install "https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl"
+  pip install "https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl" && \
+  pip install edward
 
 # xgboost
 RUN set -x && \
